@@ -8,11 +8,19 @@ alt + Return
 
 # Program launcher
 alt + s
-	rofi -show drun
+	rofi -show run
 
 # Make sxhkd reload its configuration files:
 alt + Escape
 	pkill -USR1 -x sxhkd
+
+# Lockscreen
+alt + l
+	i3lock -c "#202020"
+
+# Poweroff
+alt + p
+	poweroff
 
 #
 # BSPWM
@@ -31,7 +39,7 @@ alt + ctrl + {q, r}
 	bspc {quit, wm -r}
 
 # Alternate between the tiled and monocle layout
-alt + m
+alt + Tab
 	bspc desktop -l next
 
 # Focus the node in the given direction
@@ -42,4 +50,18 @@ alt + {Left, Down, Up, Right}
 alt + ctrl + {Left, Down, Up, Right}
 	~/.config/bspwm/scripts/resize.sh {left, down, up, right} 30
 
+# Focus the next/previous desktop in the current monitor
+ctrl + {Left, Right}
+	bspc desktop -f {prev,next}.local
 
+# Focus especific desktop
+ctrl + {1-9,0}
+	bspc desktop -f '^{1-9,10}'
+
+# Send node to especific desktop
+ctrl + shift + {1-9,0}
+	bspc node -d '^{1-9,10}'
+
+# focus or send to the given desktop
+# super + {_,shift + }{1-9,0}
+#	bspc {desktop -f,node -d} '^{1-9,10}'
