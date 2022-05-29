@@ -22,34 +22,3 @@ jobs:
       with:
         artifacts: "arch_installer"
         tag: v1.0.${{ github.run_number }}
-
-
-
-
-
-
-#   ===
-
-name: Rust
-
-on:
-  push:
-    branches:
-      - main
-
-env:
-  CARGO_TERM_COLOR: always
-
-jobs:
-  build:
-    name: Build and Release
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: cargo build --release --verbose
-    - name: Push to Releases
-      uses: ncipollo/release-action@v1
-      with:
-        artifacts: "target/release/ams"
-        tag: v1.0.${{ github.run_number }}
