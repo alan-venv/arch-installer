@@ -86,8 +86,7 @@ func install_packages() {
 	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "This step may take a while" + RESET)
 	press_return()
 	system("clear")
-	//system("pacman -Sy --noconfirm xorg-server xorg-xinit xorg-apps xfce4-terminal nitrogen picom pulseaudio alsa-utils bspwm sxhkd polybar rofi i3lock")
-	system("pacman -Sy --noconfirm vim")
+	system("pacman -Sy --noconfirm xorg-server xorg-xinit xorg-apps xfce4-terminal nitrogen picom pulseaudio alsa-utils bspwm sxhkd polybar rofi i3lock")
 	system("clear")
 	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "Installed packages" + RESET)
 	sleep(1)
@@ -100,32 +99,45 @@ func xinitrc_config() {
 	sleep(1)
 }
 
-//	   def __xinitrc_config(self):
-//         os.system("clear")
-//         os.system(f"cp {self.project_path}/resources/.xinitrc /home/administrator")
-//         print("[+] .xinitrc configured")
-//         time.sleep(1)
+func bspwm_config() {
+	system("clear")
+	system("cp -r " + get_executable_path() + "/resources/bspwm /home/administrator/.config")
+	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "BSPWM configured" + RESET)
+	sleep(1)
+}
 
-//     def __qtile_config(self):
-//         os.system("clear")
-//         os.makedirs("/home/administrator/.config/qtile/")
-//         os.system(f"cp {self.project_path}/resources/config.py /home/administrator/.config/qtile")
-//         print("[+] Qtile configured")
-//         time.sleep(1)
+func sxhkd_config() {
+	system("clear")
+	system("cp -r " + get_executable_path() + "/resources/sxhkd /home/administrator/.config")
+	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "SXHKD configured" + RESET)
+	sleep(1)
+}
 
-//     def __finish(self):
-//         os.system("clear")
-//         print("[-] Success !!!")
-//         print("[-]")
-//         print("[-] Use 'startx' with the administrator to start the qtile")
-//         print("[-]")
-//         time.sleep(1)
+func polybar_config() {
+	system("clear")
+	system("cp -r " + get_executable_path() + "/resources/polybar /home/administrator/.config")
+	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "POLYBAR configured" + RESET)
+	sleep(1)
+}
+
+func finish() {
+	system("clear")
+	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "Success !!!" + RESET)
+	fmt.Println("")
+	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "Use 'startx' with the administrator to start the bspwm" + RESET)
+	fmt.Println("")
+	sleep(1)
+}
 
 func main() {
 	id := os.Geteuid()
 	if id == 0 {
-		// install_packages()
+		install_packages()
 		xinitrc_config()
+		bspwm_config()
+		sxhkd_config()
+		polybar_config()
+		finish()
 	} else {
 		fmt.Println("Run this script with root permissions")
 	}
