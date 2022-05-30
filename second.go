@@ -81,13 +81,13 @@ func (x Second) network_config() {
 func (x Second) finish() {
 	system("clear")
 	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "Manual step" + RESET)
-	print("")
+	fmt.Println("")
 	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "1 - Run 'exit'" + RESET)
 	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "2 - Run 'umount -R /mnt'" + RESET)
 	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "3 - Run 'reboot'" + RESET)
-	print("")
+	fmt.Println("")
 	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "Welcome to Arch linux !!!" + RESET)
-	print("")
+	fmt.Println("")
 	sleep(2)
 }
 

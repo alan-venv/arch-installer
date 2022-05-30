@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"os/exec"
 )
 
 type First struct{}
@@ -77,7 +79,17 @@ func (x First) switch_system() {
 	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "3 - Run './installer --second' to continue the installation" + RESET)
 	press_return()
 	system("cp installer /mnt/root")
-	system("arch-chroot /mnt")
+	//system("arch-chroot /mnt")
+
+	cmd := exec.Command("arch-chroot", "/mnt")
+	cmd.Stdout = os.Stdout
+	err := cmd.Run()
+
+	if err != nil {
+		fmt.Println("\"" + "arch-chroot /mnt" + "\" command failed !!!")
+		fmt.Println(err.Error())
+		os.Exit(0)
+	}
 }
 
 func (x First) run() {
