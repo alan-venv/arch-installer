@@ -56,6 +56,13 @@ func (x BSPWM) nitrogen_config() {
 	sleep(2)
 }
 
+func (x BSPWM) xfce4_terminal_config() {
+	system("clear")
+	base64_to_file(XFCE4_TERMINAL_CONFIG, "/home/administrator/.config/xfce4/terminal", "terminalrc")
+	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "XFCE4-TERMINAL configured" + RESET)
+	sleep(2)
+}
+
 func (x BSPWM) finish() {
 	system("clear")
 	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "Success !!!" + RESET)
@@ -72,5 +79,6 @@ func (x BSPWM) run() {
 	x.sxhkd_config()
 	x.polybar_config()
 	x.nitrogen_config()
+	x.xfce4_terminal_config()
 	x.finish()
 }
