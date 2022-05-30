@@ -88,6 +88,14 @@ func (x Second) finish() {
 	fmt.Println("")
 	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "Welcome to Arch linux !!!" + RESET)
 	fmt.Println("")
+	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "Users:" + RESET)
+	fmt.Println("")
+	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "User: root" + RESET)
+	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "Password: admin" + RESET)
+	fmt.Println("")
+	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "User: administrator" + RESET)
+	fmt.Println(BOLD_GREEN + "[-] " + RESET + GREEN + "Password: admin" + RESET)
+	fmt.Println("")
 	sleep(2)
 }
 
