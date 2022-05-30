@@ -2,7 +2,7 @@ Utility script for installing ArchLinux
 ==========
 Follow the instructions for correct use and configuration
 
-Installation
+Manual installation
 ------------
 
 1 - Configuring the keyboard::
