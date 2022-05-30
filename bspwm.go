@@ -15,7 +15,7 @@ func (x BSPWM) install_packages() {
 	system("pacman -Sy --noconfirm xorg-server xorg-xinit xorg-apps xfce4-terminal nitrogen picom pulseaudio alsa-utils bspwm sxhkd polybar rofi i3lock archlinux-wallpaper")
 	system("clear")
 	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "Installed packages" + RESET)
-	sleep(1)
+	sleep(2)
 }
 
 func (x BSPWM) xinitrc_config() {

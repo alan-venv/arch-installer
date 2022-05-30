@@ -78,7 +78,8 @@ func main() {
 				bspwm := BSPWM{}
 				bspwm.run()
 			} else if os.Args[1] == "--first" {
-				fmt.Println(RED + "In Development" + RESET)
+				first := First{}
+				first.run()
 			} else if os.Args[1] == "--second" {
 				fmt.Println(RED + "In Development" + RESET)
 			} else {
