@@ -2,17 +2,13 @@ package main
 
 import (
 	"bufio"
+	"encoding/base64"
 	"fmt"
 	"os"
 	"os/exec"
 	"path"
 	"time"
 )
-
-const RESET string = "\033[0m"
-const BOLD_GREEN string = "\033[1;32m"
-const GREEN string = "\033[32m"
-const RED string = "\033[31m"
 
 func get_home_path() string {
 	home := os.Getenv("XDG_CONFIG_HOME")
@@ -55,6 +51,37 @@ func system(command string) {
 		fmt.Println("\"" + command + "\" command failed !!!")
 		fmt.Println(err.Error())
 		os.Exit(0)
+	}
+}
+
+func base64_to_file(b64 string, path string, file string) {
+	dec, err := base64.StdEncoding.DecodeString(b64)
+	if err != nil {
+		panic(err)
+	}
+
+	err = os.MkdirAll(path, 0755)
+	if err != nil {
+		panic(err)
+	}
+
+	f, err := os.Create(path + "/" + file)
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+
+	err = f.Chmod(0755)
+	if err != nil {
+		panic(err)
+	}
+
+	if _, err := f.Write(dec); err != nil {
+		panic(err)
+	}
+
+	if err := f.Sync(); err != nil {
+		panic(err)
 	}
 }
 

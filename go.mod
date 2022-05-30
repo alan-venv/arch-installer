@@ -1,3 +1,3 @@
-module arch_installer
+module installer
 
 go 1.18

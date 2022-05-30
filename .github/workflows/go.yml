@@ -20,5 +20,5 @@ jobs:
     - name: Publish
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "arch_installer"
+        artifacts: "installer"
         tag: v1.0.${{ github.run_number }}
