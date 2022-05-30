@@ -81,7 +81,8 @@ func main() {
 				first := First{}
 				first.run()
 			} else if os.Args[1] == "--second" {
-				fmt.Println(RED + "In Development" + RESET)
+				second := Second{}
+				second.run()
 			} else {
 				fmt.Println(RED + "Invalid option" + RESET)
 			}
