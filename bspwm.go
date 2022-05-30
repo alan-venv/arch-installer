@@ -59,6 +59,7 @@ func (x BSPWM) nitrogen_config() {
 func (x BSPWM) xfce4_terminal_config() {
 	system("clear")
 	base64_to_file(XFCE4_TERMINAL_CONFIG, "/home/administrator/.config/xfce4/terminal", "terminalrc")
+	base64_to_file(BASHRC, "/home/administrator", ".bashrc")
 	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "XFCE4-TERMINAL configured" + RESET)
 	sleep(2)
 }
