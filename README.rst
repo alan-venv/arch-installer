@@ -107,7 +107,7 @@ Manual installation
     systemctl enable NetworkManager
     exit
     umount -R /mnt
-    shutdown now
+    reboot
     
     
-    Obs: Remove ISO CD
+    Obs: Remove ISO CD or Change Boot priority
