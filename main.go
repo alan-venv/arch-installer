@@ -6,22 +6,8 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-	"path"
 	"time"
 )
-
-func get_home_path() string {
-	home := os.Getenv("XDG_CONFIG_HOME")
-	if home != "" {
-		return home
-	} else {
-		return os.Getenv("HOME")
-	}
-}
-
-func get_executable_path() string {
-	return path.Dir(os.Args[0])
-}
 
 func press_return() string {
 	fmt.Println("")
