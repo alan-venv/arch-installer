@@ -43,7 +43,6 @@ func (x BSPWM) sxhkd_config() {
 func (x BSPWM) polybar_config() {
 	system("clear")
 	base64_to_file(POLYBAR_CONFIG, "/home/administrator/.config/polybar", "config.ini")
-	base64_to_file(POLYBAR_LAUNCHER, "/home/administrator/.config/polybar", "launch.sh")
 	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "POLYBAR configured" + RESET)
 	sleep(2)
 }
