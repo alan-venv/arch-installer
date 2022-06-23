@@ -77,6 +77,9 @@ func main() {
 			if os.Args[1] == "--bspwm" {
 				bspwm := BSPWM{}
 				bspwm.run()
+			} else if os.Args[1] == "--qtile" {
+				qtile := QTILE{}
+				qtile.run()
 			} else if os.Args[1] == "--first" {
 				first := First{}
 				first.run()
@@ -98,6 +101,7 @@ func main() {
 		fmt.Println("--first      Initializes the first step of the script.")
 		fmt.Println("--second     Initializes the second part of the script.")
 		fmt.Println("--bspwm      Initializes the bspwm configuration.")
+		fmt.Println("--qtile      Initializes the qtile configuration.")
 		fmt.Println("")
 	}
 }
