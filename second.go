@@ -12,7 +12,7 @@ func (x Second) install_packages() {
 	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "This step may take a while" + RESET)
 	press_return()
 	system("clear")
-	system("pacman -Sy --noconfirm vim grub dosfstools mtools networkmanager sudo os-prober xdg-user-dirs")
+	system("pacman -Sy --noconfirm git vim grub dosfstools mtools networkmanager sudo os-prober xdg-user-dirs")
 	system("clear")
 	fmt.Println(BOLD_GREEN + "[+] " + RESET + GREEN + "Installed packages" + RESET)
 	sleep(2)
